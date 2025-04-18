@@ -1,0 +1,76 @@
+import React from "react";
+
+const Profile = () => {
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
+      <div className="bg-white shadow-lg rounded-xl p-6 max-w-md w-full text-center">
+        {/* Profile Image */}
+        <div className="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-blue-500">
+          <img
+            src="https://via.placeholder.com/150"
+            alt="Profile"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        
+        {/* User Details */}
+        <h2 className="text-2xl font-semibold text-gray-800 mt-4">John Doe</h2>
+        <p className="text-gray-600 text-sm">Full Stack Developer | Open Source Contributor</p>
+        <p className="text-gray-500 text-sm mt-2">john.doe@example.com</p>
+        <p className="text-gray-500 text-sm">+1 (123) 456-7890</p>
+        <p className="text-gray-700 text-sm font-semibold mt-2">Contributor Score: 85</p>
+        
+        {/* Activity Overview */}
+        <div className="mt-4 grid grid-cols-2 gap-4 text-center">
+          <div>
+            <h3 className="text-lg font-bold">Issues Raised</h3>
+            <p className="text-gray-600">15</p>
+          </div>
+          <div>
+            <h3 className="text-lg font-bold">Solutions Provided</h3>
+            <p className="text-gray-600">23</p>
+          </div>
+          <div>
+            <h3 className="text-lg font-bold">Upvotes Received</h3>
+            <p className="text-gray-600">120</p>
+          </div>
+          <div>
+            <h3 className="text-lg font-bold">Snippets Shared</h3>
+            <p className="text-gray-600">8</p>
+          </div>
+        </div>
+        
+        {/* Code Contributions */}
+        <div className="mt-6 text-left">
+          <h3 className="text-lg font-semibold text-gray-800">Top Contributions</h3>
+          <ul className="list-disc list-inside text-gray-600 mt-2">
+            <li>Bug Fix: Optimized React Rendering</li>
+            <li>Snippet: Custom Hook for API Calls</li>
+            <li>Feature: Dark Mode Implementation</li>
+          </ul>
+        </div>
+        
+        {/* Recent Projects & Collaborations */}
+        <div className="mt-6 text-left">
+          <h3 className="text-lg font-semibold text-gray-800">Recent Collaborations</h3>
+          <ul className="list-disc list-inside text-gray-600 mt-2">
+            <li>CodeCollab Open Source Project</li>
+            <li>Real-time Chat App Development</li>
+          </ul>
+        </div>
+        
+        {/* Achievements & Milestones */}
+        <div className="mt-6 text-left">
+          <h3 className="text-lg font-semibold text-gray-800">Achievements</h3>
+          <ul className="list-disc list-inside text-gray-600 mt-2">
+            <li>First Issue Solved</li>
+            <li>100 Upvotes Achieved</li>
+            <li>Top Contributor of the Month</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Profile;

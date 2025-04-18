@@ -1,0 +1,9 @@
+express- create app
+cors- connect back with front 
+dotenv- help to store enviroment variable in backend
+nodemon- restrat back when make change
+jsonwebtoken- create token for authentication
+mongoose- database store
+bcryptjs- encrpt the password and save in database
+nodemailer- help to send email
+cooke-parser- send cookie in api respose

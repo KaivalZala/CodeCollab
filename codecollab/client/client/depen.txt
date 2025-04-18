@@ -1,0 +1,4 @@
+npm i 
+axios: api calls 
+react-router-dom: for make routes
+react-toastify: for notification in website
