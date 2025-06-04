@@ -156,18 +156,18 @@ const Dashboard = () => {
 
       <UserNavbar/>
         {/* Welcome Section */}
-        <section className="shadow-lg rounded-lg p-10 flex flex-col md:flex-row items-center h-[500px] transition-all duration-300 m-[80px]">
+        <section className="shadow-lg rounded-lg p-4 sm:p-6 md:p-10 flex flex-col md:flex-row items-center md:h-[500px] h-auto transition-all duration-300 m-4 sm:m-8 md:m-[80px] gap-8 md:gap-0">
           {/* Left: Image Slider */}
-          <div className="relative w-full md:w-1/2">
+          <div className="relative w-full md:w-1/2 mb-6 md:mb-0">
             <Swiper
               modules={[Autoplay]}
               autoplay={{ delay: 3000, disableOnInteraction: false }}
               loop={true}
-              className="rounded-lg shadow-lg"       
+              className="rounded-lg shadow-lg"
             >
               {welcomeImages.map((image, index) => (
                 <SwiperSlide key={index} className="relative z-10">
-                  <img src={image} alt={`Slide ${index + 1}`} className="rounded-lg w-full h-auto" />
+                  <img src={image} alt={`Slide ${index + 1}`} className="rounded-lg w-full h-48 sm:h-64 md:h-[400px] object-cover" />
                 </SwiperSlide>
               ))}
             </Swiper>
@@ -175,29 +175,29 @@ const Dashboard = () => {
 
           {/* Right: Text and Buttons */}
           <motion.div 
-            className="w-full md:w-1/2 text-center md:text-left p-6"
+            className="w-full md:w-1/2 text-center md:text-left p-2 sm:p-6"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
-            <h2 className="text-4xl font-bold">Welcome to CodeCollab 🚀</h2>
-            <p className="text-lg text-gray-200 mt-3">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Welcome to CodeCollab 🚀</h2>
+            <p className="text-base sm:text-lg text-gray-200 mt-3">
               Join developers worldwide, solve coding issues, and collaborate in real-time.
             </p>
-            <div className="mt-6 flex flex-col md:flex-row gap-4">
+            <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg font-semibold shadow-md"
               >
-                <Link to = "/live">Start Live Coding</Link>
+                <Link to="/live">Start Live Coding</Link>
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-gray-900 text-white px-6 py-3 rounded-lg font-semibold shadow-md"
               >
-                <Link to = "/post-issues">Post an Issue</Link>
+                <Link to="/post-issues">Post an Issue</Link>
               </motion.button>
             </div>
           </motion.div>

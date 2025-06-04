@@ -143,7 +143,7 @@ const AllSnippets = () => {
         </div>
 
         {/* Search Bar */}
-        <div className="relative max-w-2xl mx-auto mb-8">
+        {/* <div className="relative max-w-2xl mx-auto mb-8">
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
             <FiSearch className="h-5 w-5 text-gray-400" />
           </div>
@@ -159,7 +159,7 @@ const AllSnippets = () => {
               <FiFilter className="h-5 w-5 text-gray-400" />
             </button>
           </div>
-        </div>
+        </div> */}
 
         {/* Sort Controls */}
         <div className="flex justify-between items-center mb-4">

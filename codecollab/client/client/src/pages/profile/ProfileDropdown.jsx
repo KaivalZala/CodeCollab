@@ -52,18 +52,20 @@ const ProfileDropdown = ({ userData, showDropdown, setShowDropdown }) => {
       {/* Profile Image - Click to Toggle Dropdown */}
       <button
         onClick={() => setShowDropdown(!showDropdown)}
-        className="flex items-center bg-gray-100 p-1 rounded-full hover:bg-gray-200 transition-all duration-300 shadow-sm"
+        className="flex items-center bg-gray-100 p-1 rounded-full hover:bg-gray-200 transition-all duration-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+        aria-haspopup="true"
+        aria-expanded={showDropdown}
       >
         {renderProfileImage()}
       </button>
 
       {/* Dropdown Menu */}
       {showDropdown && (
-        <div className="absolute right-0 mt-3 w-64 bg-white border border-gray-300 rounded-lg shadow-lg overflow-hidden z-50">
+        <div className="absolute right-0 mt-3 w-64 max-w-[90vw] bg-white border border-gray-300 rounded-lg shadow-lg overflow-hidden z-50 animate-fade-in">
           {/* Header */}
           <div className="p-4 bg-gray-100 border-b border-gray-200 flex items-center justify-between">
-            <p className="text-black font-semibold px-4 py-2">Hi, {userData?.name || "User"}</p>
-            <button onClick={() => setShowDropdown(false)}>
+            <p className="text-black font-semibold px-4 py-2 truncate">Hi, {userData?.name || "User"}</p>
+            <button onClick={() => setShowDropdown(false)} aria-label="Close dropdown">
               <IoMdClose className="text-gray-500 hover:text-red-500 transition duration-200" />
             </button>
           </div>
@@ -80,13 +82,7 @@ const ProfileDropdown = ({ userData, showDropdown, setShowDropdown }) => {
               <FaCode className="text-gray-500" /> <Link to="/live">Live Collaboration</Link>
             </li>
             <li className="px-4 py-3 hover:bg-gray-100 flex items-center gap-2 cursor-pointer transition-all text-gray-700">
-              <FaBell className="text-gray-500" /> <Link to="/notifications">Notifications</Link>
-            </li>
-            <li className="px-4 py-3 hover:bg-gray-100 flex items-center gap-2 cursor-pointer transition-all text-gray-700">
-              <FaClipboardList className="text-gray-500" /> <Link to="/snippets">Snippets</Link>
-            </li>
-            <li className="px-4 py-3 hover:bg-gray-100 flex items-center gap-2 cursor-pointer transition-all text-gray-700">
-              <FaCogs className="text-gray-500" /> <Link to="/settings">Settings</Link>
+              <FaClipboardList className="text-gray-500" /> <Link to="/all-snippets">Snippets</Link>
             </li>
           </ul>
 

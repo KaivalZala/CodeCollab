@@ -141,7 +141,7 @@ const MySnippets = () => {
             <h2 className="text-xl font-semibold text-indigo-800">Create New Snippet</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 text-black">
             <div>
               <input
                 type="text"

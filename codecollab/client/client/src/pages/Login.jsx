@@ -180,22 +180,21 @@ const triggerVibration = () => {
   
 
   return (
-    <div className='flex items-center justify-center min-h-screen px-6 sm:px-0 bg-gradient-to-br from-blue-200 to-purple-400'>
-      <img onClick={()=>navigate('/')} src={assets.logo} alt="" className='absolute left-5 sm:left-20 top-5 w-28 sm:w-32 cursor-pointer ' />
-      <div className='bg-slate-900 p-10 rounded-lg shadow-lg w-full sm:w-96 text-indigo-300 text-sm'>
-        <h2 className='text-3xl font-semibold text-white text-center mb-3'>{state === 'Sign Up' ? 'Create Account' :'Login'}</h2>
-        <p className='text-center text-sm mb-6'>{state === 'Sign Up' ? 'Create your account' :'Login in to your account!'}</p>
-
+    <div className='flex items-center justify-center min-h-screen px-4 sm:px-6 md:px-0 bg-gradient-to-br from-blue-200 to-purple-400'>
+      <img onClick={()=>navigate('/')} src={assets.logo} alt="" className='absolute left-2 xs:left-4 sm:left-20 top-3 xs:top-5 w-20 xs:w-24 sm:w-28 md:w-32 cursor-pointer ' />
+      <div className='bg-slate-900 p-4 xs:p-6 sm:p-10 rounded-lg shadow-lg w-full max-w-xs xs:max-w-sm sm:max-w-md md:max-w-lg text-indigo-300 text-xs xs:text-sm'>
+        <h2 className='text-xl xs:text-2xl sm:text-3xl font-semibold text-white text-center mb-2 xs:mb-3'>{state === 'Sign Up' ? 'Create Account' :'Login'}</h2>
+        <p className='text-center text-xs sm:text-sm mb-4 xs:mb-6'>{state === 'Sign Up' ? 'Create your account' :'Login in to your account!'}</p>
         <form onSubmit={onSubitHandler}>
           {state === 'Sign Up' && (
             <>
             {/* Name input (only for Sign up) */}
-            <div className='mb-4 flex items-center gap-3 w-full px-5 py-2.5 rounded-full bg-[#333A5C]'>
+            <div className='mb-4 flex items-center gap-3 w-full px-4 py-2.5 rounded-full bg-[#333A5C]'>
             <img src={assets.person_icon} alt="" />
             <input 
             onChange={e => SetName(e.target.value)} 
             value={name} 
-            className='bg-transparent outline-none' 
+            className='bg-transparent outline-none w-full' 
             type="text" 
             placeholder='Full Name' required />
           </div>
@@ -213,7 +212,7 @@ const triggerVibration = () => {
           </div>
 
           {/* Password input with Show/Hide Option */}
-<div className={`mb-4 flex items-center gap-3 w-full px-5 py-2.5 rounded-full bg-[#333A5C] ${vibrate ? 'shake' : ''} relative`}>
+<div className={`mb-4 flex items-center gap-2 xs:gap-3 w-full px-3 xs:px-4 py-2 xs:py-2.5 rounded-full bg-[#333A5C] ${vibrate ? 'shake' : ''} relative`}>
   <img src={assets.lock_icon} alt="" />
   <input
     onChange={handlePasswordChange}
@@ -245,7 +244,7 @@ const triggerVibration = () => {
             {/* retype password Input (only for Sign Up) */}
 
           {state === 'Sign Up' && (
-            <div className='mb-4 flex items-center gap-3 w-full px-5 py-2.5 rounded-full bg-[#333A5C] relative'>
+            <div className='mb-4 flex items-center gap-2 xs:gap-3 w-full px-4 xs:px-5 py-2 xs:py-2.5 rounded-full bg-[#333A5C] relative'>
               <img src={assets.lock_icon} alt="" />
               <input
                 onChange={e => setRetypePassword(e.target.value)}
@@ -274,16 +273,16 @@ const triggerVibration = () => {
           <p onClick={()=>navigate('/reset-password')}  className='mb-4 text-indigo-500 cursor-pointer'>Forgot password?</p>
           )}
           {/*Submit Button */}
-          <button className='w-full py-2.5 rounded-full bg-gradient-to-r from-indigo-500 to-indigo-900 text-white font-medium '>{state}</button>
+          <button className='w-full py-2 xs:py-2.5 rounded-full bg-gradient-to-r from-indigo-500 to-indigo-900 text-white font-medium text-sm xs:text-base'>{state}</button>
         </form>
 
         {/* Toggle between Login & Sign Up */}
         {state === 'Sign Up' ? (
-          <p className='text-gray-400 text-center text-xs mt-4' >Already have an account?{' '}
+          <p className='text-gray-400 text-center text-xs mt-3 xs:mt-4' >Already have an account?{' '}
           <span onClick={()=> setState('Login')} className='text-blue-400 cursor-pointer underline'>Login here</span>
         </p>) 
         : (
-          <p className='text-gray-400 text-center text-xs mt-4' >Dont have an account?{' '}
+          <p className='text-gray-400 text-center text-xs mt-3 xs:mt-4' >Dont have an account?{' '}
       <span onClick={()=> setState('Sign Up')} className='text-blue-400 cursor-pointer underline'>Sign Up</span>
     </p>
         )}

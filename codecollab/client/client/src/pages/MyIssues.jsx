@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import UserNavbar from "../components/UserNavbar";
-import { getMyIssues } from "../api"; // Import API function
+import { getMyIssues, deleteIssue } from "../api"; // Import API function
 
 const MyIssues = () => {
   const navigate = useNavigate();
   const [issues, setIssues] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [deletingId, setDeletingId] = useState(null);
 
   useEffect(() => {
     const fetchMyIssues = async () => {
@@ -47,8 +48,29 @@ const MyIssues = () => {
   
     fetchMyIssues();
   }, []);
-  
 
+  const handleDelete = async (issueId, e) => {
+    e.stopPropagation();
+    const token = localStorage.getItem("token");
+    if (!token) {
+      setError("Unauthorized: Please log in.");
+      return;
+    }
+    setDeletingId(issueId);
+    try {
+      const response = await deleteIssue(issueId, token);
+      if (response.success) {
+        setIssues(prev => prev.filter(issue => issue._id !== issueId));
+      } else {
+        setError(response.message || "Failed to delete issue.");
+      }
+    } catch (err) {
+      setError(err.message || "Failed to delete issue.");
+    } finally {
+      setDeletingId(null);
+    }
+  };
+  
   return (
     <div className="min-h-screen bg-gradient-to-r from-indigo-500 to-purple-600 text-white">
       <UserNavbar />
@@ -64,11 +86,19 @@ const MyIssues = () => {
             {issues.map((issue) => (
               <div
                 key={issue._id}
-                className="bg-white text-gray-900 shadow-lg rounded-lg p-6 border-l-4 border-blue-600 transition-all duration-300 hover:shadow-xl cursor-pointer"
+                className="bg-white text-gray-900 shadow-lg rounded-lg p-6 border-l-4 border-blue-600 transition-all duration-300 hover:shadow-xl cursor-pointer relative"
                 onClick={() => navigate(`/issue/${issue._id}`)}
               >
                 <h3 className="text-lg font-semibold">{issue.title}</h3>
                 <p className="text-xs text-gray-500">{new Date(issue.createdAt).toDateString()}</p>
+                <button
+                  className="absolute top-3 right-3 bg-red-500 hover:bg-red-700 text-white text-xs px-3 py-1 rounded focus:outline-none focus:ring-2 focus:ring-red-400"
+                  title="Delete issue"
+                  onClick={e => handleDelete(issue._id, e)}
+                  disabled={deletingId === issue._id}
+                >
+                  {deletingId === issue._id ? "Deleting..." : "Delete"}
+                </button>
               </div>
             ))}
           </div>
