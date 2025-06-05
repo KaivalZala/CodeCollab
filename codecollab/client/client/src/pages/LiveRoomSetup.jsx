@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { io } from "socket.io-client";
 import { useNavigate } from "react-router-dom";
-import UserNavbar from "../components/UserNavbar";
+import UserNavbar from "../components/Usernavbar";
 
 const socket = io("http://localhost:4000");
 
