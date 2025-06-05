@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import UserNavbar from "../components/UserNavbar";
+import UserNavbar from "../components/Usernavbar";
 import { getIssueById, getComments, addComment, likeComment, dislikeComment } from "../api";
 
 const IssueDetails = () => {
