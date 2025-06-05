@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import UserNavbar from "../components/UserNavbar";
+import UserNavbar from "../components/Usernavbar";
 import { getMyIssues, deleteIssue } from "../api"; // Import API function
 
 const MyIssues = () => {
