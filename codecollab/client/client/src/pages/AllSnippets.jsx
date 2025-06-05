@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import UserNavbar from "../components/UserNavbar";
+import UserNavbar from "../components/Usernavbar";
 import { getAllSnippets, upvoteSnippet } from "../api";
 import { AppContent } from "../context/AppContext";
 import { toast } from "react-toastify";
