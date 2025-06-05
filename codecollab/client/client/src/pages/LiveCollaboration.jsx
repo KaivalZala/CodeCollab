@@ -3,7 +3,7 @@ import { io } from "socket.io-client";
 import MonacoEditor from "@monaco-editor/react";
 import { useParams, useNavigate } from "react-router-dom";
 
-const socket = io("http://localhost:4000");
+const socket = io("https://codecollab-backend-q353.onrender.com");
 
 const LiveCollaboration = () => {
   const { roomId } = useParams();

@@ -10,6 +10,12 @@ import { Code, Users, MessageCircle, Sparkles, ShieldCheck, Search, Activity,Gra
 import RecentIssues from "../components/RecentIssues";
 import { Link } from "react-router-dom";
 
+import wel1 from "../assets/wel1.jpeg";
+import wel2 from "../assets/wel2.jpeg";
+import wel3 from "../assets/wel3.jpeg";
+import wel4 from "../assets/wel4.jpeg";
+import wel5 from "../assets/wel5.jpeg";
+
 
 
 const userTypes = [
@@ -95,12 +101,12 @@ const features = [
 
 // Store image paths in an array
 const welcomeImages = [
-    "/src/assets/wel1.jpeg",
-    "/src/assets/wel2.jpeg",
-    "/src/assets/wel3.jpeg",
-    "/src/assets/wel4.jpeg",
-    "/src/assets/wel5.jpeg",
-  ];
+  wel1,
+  wel2,
+  wel3,
+  wel4,
+  wel5
+];
 
 
 
