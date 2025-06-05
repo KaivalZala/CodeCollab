@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Define backend base URL
-const backendUrl = "http://localhost:4000/api"; // Update when deploying
+const backendUrl = import.meta.env.VITE_BACKEND_URL + "/api"; // Update when deploying
 
 // ✅ Post a new issue (Includes uploaded file & code snippet)
 export const postIssue = async (formData, token) => {
@@ -69,7 +69,7 @@ export const getMyIssues = async (token) => {
 // ✅ Get a single issue by ID (Fixing file path)
 export const getIssueById = async (id, token) => {
   try {
-    const response = await fetch(`http://localhost:4000/api/issues/${id}`, {
+    const response = await fetch(`${backendUrl}/api/issues/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -179,7 +179,7 @@ export const upvoteIssue = async (issueId, token) => {
 // Fetch comments for an issue
 export const getComments = async (issueId, token) => {
   try {
-    const response = await fetch(`http://localhost:4000/api/issues/${issueId}/comments`, {
+    const response = await fetch(`${backendUrl}/api/issues/${issueId}/comments`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -198,7 +198,7 @@ export const getComments = async (issueId, token) => {
 // Post a new comment to an issue
 export const addComment = async (issueId, commentText, token) => {
   try {
-    const response = await fetch(`http://localhost:4000/api/issues/${issueId}/comments`, {
+    const response = await fetch(`${backendUrl}/api/issues/${issueId}/comments`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -218,7 +218,7 @@ export const addComment = async (issueId, commentText, token) => {
 // Like a comment
 export const likeComment = async (issueId, commentId, token) => {
   try {
-    const response = await fetch(`http://localhost:4000/api/issues/${issueId}/comments/${commentId}/like`, {
+    const response = await fetch(`${backendUrl}/api/issues/${issueId}/comments/${commentId}/like`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -234,7 +234,7 @@ export const likeComment = async (issueId, commentId, token) => {
 // Dislike a comment
 export const dislikeComment = async (issueId, commentId, token) => {
   try {
-    const response = await fetch(`http://localhost:4000/api/issues/${issueId}/comments/${commentId}/dislike`, {
+    const response = await fetch(`${backendUrl}/api/issues/${issueId}/comments/${commentId}/dislike`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

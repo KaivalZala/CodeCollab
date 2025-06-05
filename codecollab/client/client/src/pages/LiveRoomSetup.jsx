@@ -3,7 +3,7 @@ import { io } from "socket.io-client";
 import { useNavigate } from "react-router-dom";
 import UserNavbar from "../components/Usernavbar";
 
-const socket = io("http://localhost:4000");
+const socket = io("https://codecollab-backend-q353.onrender.com");
 
 const LiveRoomSetup = () => {
   const [userName, setUserName] = useState("");
