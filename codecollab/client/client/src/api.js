@@ -38,7 +38,7 @@ export const postIssue = async (formData, token) => {
 export const getAllIssues = async (token, filters = {}) => {
   try {
     const query = new URLSearchParams(filters).toString();
-    const response = await axios.get(`${backendUrl}/api/issues/all?${query}`, {
+    const response = await axios.get(`${backendUrl}/issues/all?${query}`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
