@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import UserNavbar from "../components/UserNavbar";
+import UserNavbar from "../components/Usernavbar";
 import { upvoteIssue, getAllIssues } from "../api";
 import { toast } from "react-toastify";
 
