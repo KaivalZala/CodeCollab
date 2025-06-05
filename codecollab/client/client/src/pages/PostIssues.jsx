@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import UserNavbar from "../components/UserNavbar";
+import UserNavbar from "../components/Usernavbar";
 import { FaUpload } from "react-icons/fa";
 import Editor from "@monaco-editor/react";
 import { postIssue } from "../api";
